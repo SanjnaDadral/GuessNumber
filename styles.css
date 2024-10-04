@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+body {
+  background-color: #ececec;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.left-panel,
+.right-panel {
+  padding: 20px;
+  /*border-radius: 10px;*/
+  text-align: center;
+}
+
+.left-panel {
+  background-color: #800080; /* Purple color */
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex: 1;
+  max-width: 400px;
+  height: 500px;
+}
+
+.left-panel h1 {
+  font-size: 55px;
+  margin-bottom: 10px;
+  font-family: cursive;
+}
+
+.left-panel h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.guess-image {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.right-panel {
+  background-color: white;
+  padding: 40px;
+  /*border: 2px solid #800080; /* Purple border */
+  max-width: 440px;
+  height: 500px;
+
+  flex: 1;
+}
+
+.right-panel h2 {
+  color: #800080; /* Purple text */
+  font-size: 35px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.right-panel p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#guess-input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #800080; /* Purple border */
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+.btn-guess {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #800080; /* Purple button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-guess:hover {
+  background-color: #350135; /* Darker purple on hover */
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.btn-control {
+  width: 48%;
+  padding: 10px;
+  background-color: #800080; /* Purple button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-control:hover {
+  background-color: #880c88fd; /* Darker purple on hover */
+}
+/* Styling for the stats section */
+.stats {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 16px;
+  color: #800080; /* Color for the text */
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat-item label {
+  flex: 1;
+  font-weight: bold;
+  font-size: 18px;
+  color: #800080; /* Purple text color */
+}
+
+.stat-input {
+  flex: 1;
+  padding: 10px;
+  margin-left: 10px;
+  width: 50%;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+  background-color: #f0f0f0;
+  height: 35px;
+}
+
+/* Placeholder styling */
+.stat-input::placeholder {
+  color: #e8e1e1;
+}
+
+/* Ensures all inputs are the same size */
+.stat-input {
+  width: 100px;
+}
+
+/*.stats {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.stats p {
+  margin-bottom: 10px;
+}
+
+.stats input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}*/

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <h1>Number</h1>
+        <h2>Guessing Game</h2>
+        <img
+          src="images/girl thinking.png"
+          alt="Guessing"
+          class="guess-image"
+        />
+        <!-- Make sure to replace this with the correct image path -->
+      </div>
+      <div class="right-panel">
+        <h2>Guess the Number</h2>
+        <p>Guess a number between 1 to 100</p>
+        <input type="number" id="guess-input" placeholder="Enter your guess" />
+        <button class="btn-guess" onclick="makeGuess()">Guess</button>
+        <div class="controls">
+          <button class="btn-control">Give UP!</button>
+          <button class="btn-control">Play Game</button>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <label for="attempts">Attempts Made:</label>
+            <input
+              type="text"
+              id="attempts"
+              class="stat-input"
+              placeholder="0"
+              disabled
+            />
+          </div>
+          </div>
+          <div class="stat-item">
+            <label for="time">Time Taken (MM:SS):</label>
+            <input
+              type="text"
+              id="time"
+              class="stat-input"
+              placeholder="00:00"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+                // Generate a random number between 1 and 100
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            let attempts = 0;
+            let startTime;
+            let timerInterval;
+
+            // Function to start the game
+            function startGame() {
+              // Reset game variables
+              attempts = 0;
+              clearInterval(timerInterval);
+              document.getElementById('attempts').value = '0';
+              document.getElementById('time').value = '00:00';
+              document.getElementById('guess-input').value = '';
+              randomNumber = Math.floor(Math.random() * 100) + 1;
+
+              // Start the timer
+              startTime = new Date();
+              timerInterval = setInterval(updateTimer, 1000);
+            }
+
+            // Function to handle the guess button click
+            function makeGuess() {
+              // Get the user's guess
+              const guess = parseInt(document.getElementById('guess-input').value);
+
+              // Validate the guess
+              if (isNaN(guess) || guess < 1 || guess > 100) {
+                alert('Please enter a valid number between 1 and 100.');
+                return;
+              }
+
+              // Increment the attempts
+              attempts++;
+              document.getElementById('attempts').value = attempts;
+
+              // Check if the guess is correct
+              if (guess === randomNumber) {
+                // Stop the timer
+                clearInterval(timerInterval);
+
+                // Display a winning message
+                alert(`Congratulations! You guessed the number in ${attempts} attempts.`);
+
+                // Optionally, you can start a new game here
+                // startGame();
+              } else if (guess < randomNumber) {
+                alert('Too low! Try again.');
+              } else {
+                alert('Too high! Try again.');
+              }
+            }
+
+            // Function to handle giving up
+            function giveUp() {
+              // Stop the timer
+              clearInterval(timerInterval);
+
+              // Display the correct number
+              alert(`The number was ${randomNumber}.`);
+
+              // Optionally, you can start a new game here
+              // startGame();
+            }
+
+            // Function to update the timer
+            function updateTimer() {
+              const currentTime = new Date();
+              const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+              const minutes = Math.floor(elapsedSeconds / 60);
+              const seconds = elapsedSeconds % 60;
+
+              document.getElementById('time').value = `${padZero(minutes)}:${padZero(seconds)}`;
+            }
+
+            // Function to pad zeros for single-digit numbers
+            function padZero(number) {
+              return number < 10 ? `0${number}` : number;
+            }
+
+            // Attach event listeners to the buttons
+            document.addEventListener('DOMContentLoaded', startGame); // Start the game when the page loads
+            document.querySelector('.btn-control:nth-child(1)').addEventListener('click', giveUp);
+            document.querySelector('.btn-control:nth-child(2)').addEventListener('click', startGame);
+    </script>        
+     </body>
+</html>
